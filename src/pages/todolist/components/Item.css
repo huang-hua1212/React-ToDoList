@@ -7,8 +7,11 @@
     padding-bottom: 1.5vh;
     border-bottom: black solid;
 }
-.removeA{
+/* .removeA{
     text-decoration: none;
+} */
+a{
+  text-decoration: none;
 }
 span{
     padding-top: 0.5vh;

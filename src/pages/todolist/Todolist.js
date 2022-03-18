@@ -1,7 +1,7 @@
 import TodolistEdit from './components/TodolistEdit';
 import TodolistList from './components/TodolistList';
 import { API_GET_DATA } from '../../global/contents';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Todolist.css';
 
 async function fetchData(setData) {
@@ -22,8 +22,15 @@ async function fetchSetData(data) {
 function Todolist() {
     const [data, setData] = useState([]);  //[1,2,3] setData的時候一定要整個陣列給，不能只給一個數字
 
-    //(1)若希望某個永遠(除非重新整理)維持一樣
-    // const submissioningStatus = useRef('永遠一樣的值');  //這個永遠一樣的值用來作為一個標準
+    const ref = useRef(false);
+    console.log(ref);
+    ref.current = true;
+
+    console.log(ref);
+    console.log(ref.current);
+
+    //(1)若希望某個變數永遠存在(除非重新整理)
+    // const submissioningStatus = useRef('初始值');  //這個永遠一樣的值用來作為一個標準
     //(2)
     //當第二參數發生變化時，會執行第一個參數的函數
     // useEffect(() => {
@@ -36,9 +43,15 @@ function Todolist() {
     //     .then((dat) => {
     //         console.log(dat);
     //     })
-    return <div className='todolist'>
+    return <div>
+    <div className='todolist'>
         <TodolistEdit add={setData} />
         <TodolistList listData={data} deleteItem={setData} />
+    </div>
+    <div className = 'lastNextBtn'>
+        <a className='lastBtnA' href = '#'><div className='lastBtn'>退出</div></a>
+        <a className='nextBtnA' href = '#'><div className='nextBtn'>下一步</div></a>
+    </div>
     </div>
 }
 export default Todolist;
