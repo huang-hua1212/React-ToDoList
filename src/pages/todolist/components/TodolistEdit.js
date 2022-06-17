@@ -12,6 +12,8 @@ function TodolistEdit({add}){
             noteDate,
             noteTime,
         }
+        
+        // 回傳新的列表至父元件中
         add((prevData) => {
             const result = [...prevData, newItem];
             return result;
