@@ -2,6 +2,7 @@ import './TodolistEdit.css'
 import {useState} from 'react'
 import {v4 as uuid} from 'uuid';
 
+// add是與父元件溝通的屬性(function或變數)，會存在於父元件的中的子元件的屬性<TodolistEdit add="{函數參數}"></TodolistEdit>
 function TodolistEdit({add}){
     function AddItem(e){
         e.preventDefault();
